@@ -5,7 +5,6 @@ $COUNTER=0
 #Liste aller Artikel erstellen
 for($PAGECOUNT=1;$PAGECOUNT -le $PAGENUM;$PAGECOUNT++){
    $URL=$BASEURL+"/page/"+$PAGECOUNT
-   $FILENAME=[string]$PAGECOUNT+".html"
     $URLS+=((wget $URL).Links| Where-Object {$_.href -like "http*"}|where class -eq "more-link").href
 }
 
